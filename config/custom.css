@@ -1,0 +1,1005 @@
+/* ===================================================================
+ * HOMEPAGE ENTERPRISE PORTAL - SHADCN/UI INTEGRATION
+ * Variables CSS unificadas y componentes modernos
+ * =================================================================== */
+
+/* === IMPORTACIÓN DE COMPONENTES SHADCN/UI === */
+@import url('./components/enhanced-cards.css');
+@import url('./components/status-badges.css');
+@import url('./components/progress-bars.css');
+
+/* === VARIABLES CSS SHADCN/UI COMPATIBLES === */
+:root {
+  /* === SISTEMA DE COLORES SHADCN/UI === */
+  --background: 222.2 84% 4.9%;
+  --foreground: 210 40% 98%;
+  --card: 222.2 84% 4.9%;
+  --card-foreground: 210 40% 98%;
+  --popover: 222.2 84% 4.9%;
+  --popover-foreground: 210 40% 98%;
+  --primary: 210 40% 98%;
+  --primary-foreground: 222.2 84% 4.9%;
+  --secondary: 217.2 32.6% 17.5%;
+  --secondary-foreground: 210 40% 98%;
+  --muted: 217.2 32.6% 17.5%;
+  --muted-foreground: 215 20.2% 65.1%;
+  --accent: 217.2 32.6% 17.5%;
+  --accent-foreground: 210 40% 98%;
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 210 40% 98%;
+  --border: 217.2 32.6% 17.5%;
+  --input: 217.2 32.6% 17.5%;
+  --ring: 212.7 26.8% 83.9%;
+  --radius: 0.5rem;
+
+  /* === COLORES TECH ENTERPRISE (LEGACY COMPATIBILITY) === */
+  --primary-teal: rgba(20, 184, 166, 0.9);
+  --secondary-teal: rgba(6, 182, 212, 0.7);
+  --accent-gold: rgba(250, 204, 21, 0.8);
+  --accent-gold-hover: rgba(250, 204, 21, 0.6);
+  --tech-blue: rgba(59, 130, 246, 0.8);
+  --tech-purple: rgba(147, 51, 234, 0.7);
+  --tech-green: rgba(34, 197, 94, 0.8);
+  --tech-red: rgba(239, 68, 68, 0.8);
+
+  /* === FONDOS Y TRANSPARENCIAS === */
+  --card-bg: hsl(var(--card));
+  --card-bg-alt: hsl(var(--card) / 0.95);
+  --card-bg-strong: hsl(var(--card) / 0.98);
+
+  /* === COLORES DE TEXTO MEJORADOS === */
+  --text-primary: hsl(var(--foreground));
+  --text-secondary: hsl(var(--muted-foreground));
+  --text-muted: hsl(var(--muted-foreground));
+  --text-accent: #67e8f9;
+  --text-tech: #00ff88;
+
+  /* === SOMBRAS Y EFECTOS === */
+  --shadow-text: 0 2px 8px rgba(0, 0, 0, 0.9);
+  --shadow-card: 0 8px 32px rgba(0, 0, 0, 0.4);
+  --shadow-hover: 0 12px 40px rgba(250, 204, 21, 0.3);
+  --blur-backdrop: blur(8px);
+
+  /* === BORDES === */
+  --border-teal: 1px solid rgba(20, 184, 166, 0.3);
+  --border-gold: 1px solid rgba(250, 204, 21, 0.4);
+  --border-tech: 1px solid rgba(0, 255, 136, 0.4);
+}
+
+/* === FONDO PRINCIPAL === */
+html,
+body,
+#__next,
+[data-testid="main"] {
+    background-image: url('/images/fondo.jpg') !important;
+    background-attachment: fixed !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    min-height: 100vh !important;
+}
+
+/* === INTEGRACIÓN SHADCN/UI CON HOMEPAGE === */
+
+/* Aplicar clases enhanced-card a elementos existentes */
+.card {
+    @apply enhanced-card;
+    background-color: var(--card-bg) !important;
+    backdrop-filter: var(--blur-backdrop) !important;
+    -webkit-backdrop-filter: var(--blur-backdrop) !important;
+    border: var(--border-teal) !important;
+    box-shadow: var(--shadow-card) !important;
+    transition: all 0.3s ease !important;
+    border-radius: 8px !important;
+}
+
+.widget {
+    @apply widget-card;
+    background: var(--card-bg-alt) !important;
+    border: var(--border-teal) !important;
+    backdrop-filter: blur(6px) !important;
+    -webkit-backdrop-filter: blur(6px) !important;
+    border-radius: 8px !important;
+}
+
+/* Servicios como service-cards */
+.service {
+    @apply service-card;
+}
+
+/* Auto-aplicar badges a elementos de estado */
+[class*="status-"],
+.badge,
+.online,
+.offline {
+    @apply status-badge;
+}
+
+/* Auto-aplicar progress a barras de progreso */
+[class*="progress"],
+.progress {
+    @apply progress-container;
+}
+
+/* === ENCABEZADOS DE GRUPO === */
+.group-title {
+    background: linear-gradient(135deg, var(--primary-teal), var(--secondary-teal)) !important;
+    color: #ffffff !important;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8) !important;
+    border-radius: 8px !important;
+    padding: 12px 20px !important;
+    margin-bottom: 16px !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+    border: var(--border-gold) !important;
+    font-weight: 700 !important;
+    font-size: 1.1rem !important;
+    letter-spacing: 0.02em !important;
+    position: relative !important;
+}
+
+/* === TIPOGRAFÍA Y TEXTO - COMPLETAMENTE LEGIBLE === */
+.service-title,
+.service-description,
+.service h2,
+.service h3,
+.widget h2,
+.widget h3,
+.widget-label,
+.widget-value {
+    color: #ffffff !important;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9), 0 1px 4px rgba(0, 0, 0, 0.8) !important;
+    font-weight: 600 !important;
+    line-height: 1.4 !important;
+    position: relative !important;
+    z-index: 10 !important;
+}
+
+.service-title,
+.service h2 {
+    font-size: 1.1rem !important;
+    font-weight: 700 !important;
+    margin-bottom: 4px !important;
+    color: #ffffff !important;
+}
+
+.service-description {
+    font-size: 0.9rem !important;
+    color: #f1f5f9 !important;
+    opacity: 1 !important;
+}
+
+.widget-label {
+    font-size: 0.85rem !important;
+    color: #e2e8f0 !important;
+    font-weight: 500 !important;
+}
+
+.widget-value {
+    font-size: 1rem !important;
+    font-weight: 600 !important;
+    color: #ffffff !important;
+}
+
+/* === MEJORAS PARA LEGIBILIDAD === */
+h1,
+h2,
+h3,
+.title {
+    color: #ffffff !important;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9) !important;
+    font-weight: 700 !important;
+}
+
+/* Bookmarks */
+.bookmark-title,
+.bookmark-description {
+    color: #ffffff !important;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.9) !important;
+    font-weight: 600 !important;
+}
+
+/* Enlaces */
+a,
+.link {
+    color: #67e8f9 !important;
+    text-decoration: none !important;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8) !important;
+}
+
+a:hover,
+.link:hover {
+    color: #fbbf24 !important;
+    text-shadow: 0 2px 6px rgba(251, 191, 36, 0.6) !important;
+}
+
+/* Status y métricas */
+.status-text,
+.metric-value,
+.uptime-text {
+    color: #ffffff !important;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.9) !important;
+    font-weight: 600 !important;
+}
+
+/* Texto pequeño */
+.text-xs,
+.label,
+.badge {
+    color: #f1f5f9 !important;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8) !important;
+    font-weight: 500 !important;
+}
+
+/* Asegurar legibilidad en todos los elementos */
+p,
+span,
+div:not(.icon) {
+    color: #ffffff !important;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8) !important;
+}
+
+/* === EFECTOS DE HOVER MEJORADOS === */
+.service:hover,
+.enhanced-card:hover {
+    border-color: var(--accent-gold-hover) !important;
+    box-shadow: var(--shadow-hover) !important;
+    transform: translateY(-2px) !important;
+    transition: all 0.3s ease !important;
+}
+
+/* Hover específico para service-cards */
+.service-card:hover {
+    @apply hover:shadow-lg hover:scale-[1.02];
+}
+
+/* === BARRA DE BÚSQUEDA === */
+.search-container input {
+    background-color: var(--card-bg-alt) !important;
+    border: var(--border-teal) !important;
+    color: #ffffff !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8) !important;
+}
+
+.search-container input:focus {
+    border-color: var(--accent-gold) !important;
+    box-shadow: 0 0 20px rgba(250, 204, 21, 0.4) !important;
+}
+
+.search-container input::placeholder {
+    color: #cbd5e1 !important;
+    opacity: 0.8 !important;
+}
+
+/* === STATUS DOTS === */
+.status-dot.online {
+    background: linear-gradient(45deg, #10b981, #14b8a6) !important;
+    box-shadow: 0 0 10px rgba(16, 185, 129, 0.6) !important;
+}
+
+.status-dot.offline {
+    background: linear-gradient(45deg, #ef4444, #f97316) !important;
+    box-shadow: 0 0 10px rgba(239, 68, 68, 0.6) !important;
+}
+
+/* === WIDGETS ESPECÍFICOS === */
+[data-testid*="resources"] {
+    background: var(--card-bg-strong) !important;
+    border: var(--border-teal) !important;
+    border-radius: 8px !important;
+}
+
+[data-testid*="datetime"] {
+    background: linear-gradient(135deg, var(--primary-teal), var(--secondary-teal)) !important;
+    border: var(--border-gold) !important;
+    border-radius: 8px !important;
+    text-align: center !important;
+}
+
+[data-testid*="datetime"] * {
+    color: #ffffff !important;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.8) !important;
+    font-weight: 700 !important;
+}
+
+[data-testid*="openmeteo"] {
+    background: var(--card-bg-strong) !important;
+    border: var(--border-teal) !important;
+    border-radius: 8px !important;
+}
+
+/* === EFECTOS TECNOLÓGICOS SUTILES === */
+
+/* Animaciones básicas */
+@keyframes tech-pulse {
+
+    0%,
+    100% {
+        opacity: 0.8;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+@keyframes data-flow {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 0.6;
+    }
+
+    100% {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+}
+
+/* Efectos por categoría de servicio */
+[data-group="Core Infrastructure"] .service {
+    position: relative !important;
+    border-color: rgba(239, 68, 68, 0.4) !important;
+}
+
+[data-group="Core Infrastructure"] .service::before {
+    content: '' !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: -100% !important;
+    width: 100% !important;
+    height: 2px !important;
+    background: linear-gradient(90deg, transparent, rgba(239, 68, 68, 0.6), transparent) !important;
+    animation: data-flow 3s linear infinite !important;
+    z-index: 1 !important;
+}
+
+[data-group="Network & Security"] .service {
+    border-color: rgba(59, 130, 246, 0.4) !important;
+}
+
+[data-group="AI & Automation"] .service {
+    border-color: rgba(0, 255, 136, 0.4) !important;
+}
+
+[data-group="AI & Automation"] .service-title {
+    color: #00ff88 !important;
+    text-shadow: 0 0 8px rgba(0, 255, 136, 0.6), 0 2px 6px rgba(0, 0, 0, 0.9) !important;
+}
+
+[data-group="Media Streaming"] .service {
+    border-color: rgba(236, 72, 153, 0.4) !important;
+}
+
+/* === EFECTOS DE GLASSMORPHISM === */
+.card,
+.widget {
+    background: rgba(15, 23, 42, 0.9) !important;
+    backdrop-filter: blur(12px) saturate(180%) !important;
+    -webkit-backdrop-filter: blur(12px) saturate(180%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+}
+
+/* === SCROLLBAR PERSONALIZADO === */
+::-webkit-scrollbar {
+    width: 8px !important;
+    height: 8px !important;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(15, 23, 42, 0.6) !important;
+    border-radius: 4px !important;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-teal) !important;
+    border-radius: 4px !important;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-gold) !important;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+    :root {
+        --blur-backdrop: blur(4px);
+    }
+
+    .card {
+        background-color: rgba(15, 23, 42, 0.95) !important;
+    }
+
+    .group-title {
+        font-size: 1rem !important;
+        padding: 10px 16px !important;
+    }
+
+    .service-title {
+        font-size: 1rem !important;
+    }
+
+    .service-description {
+        font-size: 0.85rem !important;
+    }
+
+    /* Desactivar efectos complejos en móviles */
+    [data-group="Core Infrastructure"] .service::before {
+        display: none !important;
+    }
+}
+
+/* === ACCESIBILIDAD === */
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+@media (prefers-contrast: high) {
+
+    .card,
+    .service {
+        background-color: rgba(0, 0, 0, 0.95) !important;
+        border: 2px solid #ffffff !important;
+    }
+
+    .service-title,
+    .widget-value {
+        color: #ffffff !important;
+        text-shadow: 0 0 4px rgba(0, 0, 0, 1) !important;
+    }
+}
+
+/* === FOCUS === */
+.service:focus,
+.card:focus,
+button:focus,
+input:focus {
+    outline: 2px solid var(--accent-gold) !important;
+    outline-offset: 2px !important;
+}
+
+/* === PRINT === */
+@media print {
+    body {
+        background: white !important;
+        color: black !important;
+    }
+
+    .card,
+    .service {
+        background: white !important;
+        border: 1px solid #ccc !important;
+        box-shadow: none !important;
+    }
+
+    .group-title {
+        background: #f0f0f0 !important;
+        color: black !important;
+        text-shadow: none !important;
+    }
+}/* ===
+ REDISEÑO MEDIA STREAMING TECH CENTER === */
+
+/* Contenedor principal de Media Streaming */
+[data-group="Media Streaming"] {
+    gap: 20px !important;
+    position: relative !important;
+}
+
+/* Efecto de fondo para toda la sección */
+[data-group="Media Streaming"]::before {
+    content: '' !important;
+    position: absolute !important;
+    top: -10px !important;
+    left: -10px !important;
+    right: -10px !important;
+    bottom: -10px !important;
+    background: linear-gradient(135deg, 
+        rgba(236, 72, 153, 0.1), 
+        rgba(147, 51, 234, 0.1), 
+        rgba(59, 130, 246, 0.1)) !important;
+    border-radius: 16px !important;
+    z-index: -1 !important;
+    animation: media-glow 4s ease-in-out infinite alternate !important;
+}
+
+@keyframes media-glow {
+    0% { opacity: 0.3; }
+    100% { opacity: 0.6; }
+}
+
+/* === REDISEÑO DEL CALENDARIO TECH === */
+
+/* MEDIA COMMAND CENTER - Calendario principal */
+[data-group="Media Streaming"] .service:first-child {
+    background: linear-gradient(135deg, 
+        rgba(15, 23, 42, 0.95), 
+        rgba(30, 41, 59, 0.95)) !important;
+    border: 2px solid rgba(236, 72, 153, 0.6) !important;
+    border-radius: 16px !important;
+    backdrop-filter: blur(20px) !important;
+    box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.5),
+        0 0 30px rgba(236, 72, 153, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+    min-height: 350px !important;
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+/* Título del calendario con efecto tech */
+[data-group="Media Streaming"] .service:first-child .service-title {
+    background: linear-gradient(45deg, #ec4899, #a855f7, #3b82f6) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+    font-family: 'Courier New', monospace !important;
+    font-size: 1.2rem !important;
+    font-weight: 800 !important;
+    text-align: center !important;
+    margin-bottom: 15px !important;
+    position: relative !important;
+    animation: title-pulse 3s ease-in-out infinite !important;
+}
+
+@keyframes title-pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+}
+
+/* Efecto de escaneo en el calendario */
+[data-group="Media Streaming"] .service:first-child::before {
+    content: '' !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: -100% !important;
+    width: 100% !important;
+    height: 3px !important;
+    background: linear-gradient(90deg, 
+        transparent, 
+        rgba(236, 72, 153, 0.8), 
+        rgba(147, 51, 234, 0.8), 
+        transparent) !important;
+    animation: calendar-scan 4s linear infinite !important;
+    z-index: 5 !important;
+}
+
+@keyframes calendar-scan {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+
+/* Tabla del calendario rediseñada */
+[data-group="Media Streaming"] .service:first-child table {
+    width: 100% !important;
+    border-collapse: separate !important;
+    border-spacing: 3px !important;
+    font-family: 'Courier New', monospace !important;
+    background: rgba(0, 0, 0, 0.3) !important;
+    border-radius: 8px !important;
+    padding: 10px !important;
+}
+
+/* Encabezados del calendario (días de la semana) */
+[data-group="Media Streaming"] .service:first-child th {
+    background: linear-gradient(45deg, rgba(236, 72, 153, 0.8), rgba(147, 51, 234, 0.8)) !important;
+    color: #ffffff !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8) !important;
+    font-weight: 700 !important;
+    font-size: 0.8rem !important;
+    text-align: center !important;
+    padding: 8px 4px !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.1em !important;
+    border-radius: 4px !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+}
+
+/* Días del calendario */
+[data-group="Media Streaming"] .service:first-child td {
+    background: rgba(15, 23, 42, 0.8) !important;
+    color: #ffffff !important;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8) !important;
+    text-align: center !important;
+    padding: 6px !important;
+    border-radius: 6px !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    transition: all 0.3s ease !important;
+    font-size: 0.85rem !important;
+    font-weight: 600 !important;
+    min-width: 30px !important;
+    height: 30px !important;
+    position: relative !important;
+}
+
+/* Días con eventos */
+[data-group="Media Streaming"] .service:first-child .has-event,
+[data-group="Media Streaming"] .service:first-child td[data-events] {
+    background: linear-gradient(45deg, rgba(34, 197, 94, 0.6), rgba(16, 185, 129, 0.6)) !important;
+    color: #ffffff !important;
+    font-weight: 800 !important;
+    box-shadow: 
+        0 4px 12px rgba(34, 197, 94, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
+    animation: event-pulse 2s ease-in-out infinite !important;
+}
+
+@keyframes event-pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); box-shadow: 0 6px 16px rgba(34, 197, 94, 0.6); }
+}
+
+/* Día actual destacado */
+[data-group="Media Streaming"] .service:first-child .today {
+    background: linear-gradient(45deg, rgba(250, 204, 21, 0.9), rgba(245, 158, 11, 0.9)) !important;
+    color: #1f2937 !important;
+    font-weight: 900 !important;
+    box-shadow: 
+        0 6px 20px rgba(250, 204, 21, 0.6),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3) !important;
+    animation: today-glow 3s ease-in-out infinite !important;
+}
+
+@keyframes today-glow {
+    0%, 100% { 
+        box-shadow: 0 6px 20px rgba(250, 204, 21, 0.6);
+        transform: scale(1);
+    }
+    50% { 
+        box-shadow: 0 8px 30px rgba(250, 204, 21, 0.8);
+        transform: scale(1.08);
+    }
+}
+
+/* === RELEASE TRACKER - Calendario agenda === */
+
+/* RELEASE TRACKER - Segundo calendario */
+[data-group="Media Streaming"] .service:nth-child(2) {
+    background: linear-gradient(135deg, 
+        rgba(15, 23, 42, 0.95), 
+        rgba(30, 41, 59, 0.95)) !important;
+    border: 2px solid rgba(147, 51, 234, 0.6) !important;
+    border-radius: 16px !important;
+    backdrop-filter: blur(20px) !important;
+    box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.5),
+        0 0 30px rgba(147, 51, 234, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+    min-height: 350px !important;
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+/* Título del Release Tracker */
+[data-group="Media Streaming"] .service:nth-child(2) .service-title {
+    background: linear-gradient(45deg, #a855f7, #3b82f6, #06b6d4) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+    font-family: 'Courier New', monospace !important;
+    font-size: 1.2rem !important;
+    font-weight: 800 !important;
+    text-align: center !important;
+    margin-bottom: 15px !important;
+    animation: tracker-pulse 2s ease-in-out infinite alternate !important;
+}
+
+@keyframes tracker-pulse {
+    0% { opacity: 0.8; }
+    100% { opacity: 1; text-shadow: 0 0 10px rgba(147, 51, 234, 0.6); }
+}
+
+/* Efecto de líneas de datos para Release Tracker */
+[data-group="Media Streaming"] .service:nth-child(2)::before {
+    content: '' !important;
+    position: absolute !important;
+    top: 0 !important;
+    right: -100% !important;
+    width: 100% !important;
+    height: 3px !important;
+    background: linear-gradient(90deg, 
+        transparent, 
+        rgba(147, 51, 234, 0.8), 
+        rgba(59, 130, 246, 0.8), 
+        transparent) !important;
+    animation: tracker-scan 3s linear infinite reverse !important;
+    z-index: 5 !important;
+}
+
+@keyframes tracker-scan {
+    0% { right: -100%; }
+    100% { right: 100%; }
+}
+
+/* Lista de agenda del Release Tracker */
+[data-group="Media Streaming"] .service:nth-child(2) .agenda-list,
+[data-group="Media Streaming"] .service:nth-child(2) ul,
+[data-group="Media Streaming"] .service:nth-child(2) .event-list {
+    background: rgba(0, 0, 0, 0.3) !important;
+    border-radius: 8px !important;
+    padding: 12px !important;
+    max-height: 280px !important;
+    overflow-y: auto !important;
+}
+
+/* Items de la agenda */
+[data-group="Media Streaming"] .service:nth-child(2) .agenda-item,
+[data-group="Media Streaming"] .service:nth-child(2) li {
+    background: rgba(15, 23, 42, 0.8) !important;
+    border: 1px solid rgba(147, 51, 234, 0.3) !important;
+    border-radius: 6px !important;
+    padding: 8px 12px !important;
+    margin-bottom: 6px !important;
+    color: #ffffff !important;
+    font-family: 'Courier New', monospace !important;
+    font-size: 0.85rem !important;
+    transition: all 0.3s ease !important;
+    position: relative !important;
+}
+
+[data-group="Media Streaming"] .service:nth-child(2) .agenda-item:hover,
+[data-group="Media Streaming"] .service:nth-child(2) li:hover {
+    background: rgba(147, 51, 234, 0.2) !important;
+    border-color: rgba(147, 51, 234, 0.6) !important;
+    transform: translateX(5px) !important;
+    box-shadow: 0 4px 12px rgba(147, 51, 234, 0.3) !important;
+}
+
+/* === JELLYFIN THEATER === */
+
+/* Jellyfin Theater - Tercer servicio */
+[data-group="Media Streaming"] .service:nth-child(3) {
+    background: linear-gradient(135deg, 
+        rgba(15, 23, 42, 0.95), 
+        rgba(30, 41, 59, 0.95)) !important;
+    border: 2px solid rgba(59, 130, 246, 0.6) !important;
+    border-radius: 16px !important;
+    backdrop-filter: blur(20px) !important;
+    box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.5),
+        0 0 30px rgba(59, 130, 246, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+    min-height: 350px !important;
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+/* Título de Jellyfin */
+[data-group="Media Streaming"] .service:nth-child(3) .service-title {
+    color: #3b82f6 !important;
+    font-family: 'Courier New', monospace !important;
+    font-size: 1.1rem !important;
+    font-weight: 700 !important;
+    text-align: center !important;
+    text-shadow: 0 0 10px rgba(59, 130, 246, 0.6), 0 2px 4px rgba(0, 0, 0, 0.8) !important;
+    animation: jellyfin-glow 3s ease-in-out infinite !important;
+}
+
+@keyframes jellyfin-glow {
+    0%, 100% { text-shadow: 0 0 10px rgba(59, 130, 246, 0.6), 0 2px 4px rgba(0, 0, 0, 0.8); }
+    50% { text-shadow: 0 0 20px rgba(59, 130, 246, 0.8), 0 2px 4px rgba(0, 0, 0, 0.8); }
+}
+
+/* Efecto de película para Jellyfin */
+[data-group="Media Streaming"] .service:nth-child(3)::before {
+    content: '' !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    background: repeating-linear-gradient(
+        90deg,
+        transparent,
+        transparent 2px,
+        rgba(59, 130, 246, 0.1) 2px,
+        rgba(59, 130, 246, 0.1) 4px
+    ) !important;
+    animation: film-roll 10s linear infinite !important;
+    pointer-events: none !important;
+    z-index: 1 !important;
+}
+
+@keyframes film-roll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(20px); }
+}
+
+/* === IMMICH VAULT === */
+
+/* Immich Vault - Cuarto servicio */
+[data-group="Media Streaming"] .service:nth-child(4) {
+    background: linear-gradient(135deg, 
+        rgba(15, 23, 42, 0.95), 
+        rgba(30, 41, 59, 0.95)) !important;
+    border: 2px solid rgba(34, 197, 94, 0.6) !important;
+    border-radius: 16px !important;
+    backdrop-filter: blur(20px) !important;
+    box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.5),
+        0 0 30px rgba(34, 197, 94, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+    min-height: 350px !important;
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+/* Título de Immich */
+[data-group="Media Streaming"] .service:nth-child(4) .service-title {
+    color: #22c55e !important;
+    font-family: 'Courier New', monospace !important;
+    font-size: 1.1rem !important;
+    font-weight: 700 !important;
+    text-align: center !important;
+    text-shadow: 0 0 10px rgba(34, 197, 94, 0.6), 0 2px 4px rgba(0, 0, 0, 0.8) !important;
+    animation: vault-pulse 2.5s ease-in-out infinite !important;
+}
+
+@keyframes vault-pulse {
+    0%, 100% { 
+        text-shadow: 0 0 10px rgba(34, 197, 94, 0.6), 0 2px 4px rgba(0, 0, 0, 0.8);
+        transform: scale(1);
+    }
+    50% { 
+        text-shadow: 0 0 20px rgba(34, 197, 94, 0.8), 0 2px 4px rgba(0, 0, 0, 0.8);
+        transform: scale(1.02);
+    }
+}
+
+/* Efecto de vault/archivo para Immich */
+[data-group="Media Streaming"] .service:nth-child(4)::before {
+    content: '' !important;
+    position: absolute !important;
+    top: 10px !important;
+    right: 10px !important;
+    width: 20px !important;
+    height: 20px !important;
+    border: 2px solid rgba(34, 197, 94, 0.6) !important;
+    border-radius: 50% !important;
+    animation: vault-scan 3s linear infinite !important;
+    z-index: 5 !important;
+}
+
+@keyframes vault-scan {
+    0% { 
+        transform: scale(1) rotate(0deg);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.5) rotate(180deg);
+        opacity: 0.5;
+    }
+    100% { 
+        transform: scale(1) rotate(360deg);
+        opacity: 1;
+    }
+}
+
+/* === WIDGETS DENTRO DE SERVICIOS === */
+
+/* Mejorar widgets dentro de los servicios de media */
+[data-group="Media Streaming"] .widget {
+    background: rgba(0, 0, 0, 0.4) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border-radius: 8px !important;
+    padding: 12px !important;
+    margin-top: 10px !important;
+    position: relative !important;
+    z-index: 10 !important;
+}
+
+[data-group="Media Streaming"] .widget-value {
+    font-family: 'Courier New', monospace !important;
+    font-size: 1.1rem !important;
+    font-weight: 700 !important;
+    color: #ffffff !important;
+    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.8) !important;
+}
+
+[data-group="Media Streaming"] .widget-label {
+    font-family: 'Courier New', monospace !important;
+    font-size: 0.8rem !important;
+    color: #cbd5e1 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.1em !important;
+}
+
+/* === EFECTOS DE HOVER PARA MEDIA STREAMING === */
+
+[data-group="Media Streaming"] .service:hover {
+    transform: translateY(-5px) scale(1.02) !important;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+[data-group="Media Streaming"] .service:nth-child(1):hover {
+    box-shadow: 
+        0 25px 50px rgba(0, 0, 0, 0.6),
+        0 0 40px rgba(236, 72, 153, 0.5),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
+}
+
+[data-group="Media Streaming"] .service:nth-child(2):hover {
+    box-shadow: 
+        0 25px 50px rgba(0, 0, 0, 0.6),
+        0 0 40px rgba(147, 51, 234, 0.5),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
+}
+
+[data-group="Media Streaming"] .service:nth-child(3):hover {
+    box-shadow: 
+        0 25px 50px rgba(0, 0, 0, 0.6),
+        0 0 40px rgba(59, 130, 246, 0.5),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
+}
+
+[data-group="Media Streaming"] .service:nth-child(4):hover {
+    box-shadow: 
+        0 25px 50px rgba(0, 0, 0, 0.6),
+        0 0 40px rgba(34, 197, 94, 0.5),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2) !important;
+}
+
+/* === RESPONSIVE PARA MEDIA STREAMING === */
+
+@media (max-width: 1200px) {
+    [data-group="Media Streaming"] .service {
+        min-height: 320px !important;
+    }
+    
+    [data-group="Media Streaming"] .service-title {
+        font-size: 1rem !important;
+    }
+}
+
+@media (max-width: 768px) {
+    [data-group="Media Streaming"] .service {
+        min-height: 280px !important;
+    }
+    
+    [data-group="Media Streaming"] .service::before {
+        display: none !important;
+    }
+    
+    [data-group="Media Streaming"] .service-title {
+        font-size: 0.9rem !important;
+    }
+    
+    [data-group="Media Streaming"] .service:hover {
+        transform: translateY(-2px) !important;
+    }
+}
+
+/* === SCROLLBAR PERSONALIZADO PARA CALENDARIOS === */
+
+[data-group="Media Streaming"] .service::-webkit-scrollbar {
+    width: 6px !important;
+}
+
+[data-group="Media Streaming"] .service::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.3) !important;
+    border-radius: 3px !important;
+}
+
+[data-group="Media Streaming"] .service::-webkit-scrollbar-thumb {
+    background: linear-gradient(45deg, #ec4899, #a855f7) !important;
+    border-radius: 3px !important;
+}
+
+[data-group="Media Streaming"] .service::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(45deg, #f472b6, #c084fc) !important;
+}

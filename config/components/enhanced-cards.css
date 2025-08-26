@@ -1,0 +1,259 @@
+/* ===================================================================
+ * ENHANCED CARDS - shadcn/ui Compatible Components
+ * Tarjetas de servicios mejoradas para Homepage Enterprise Portal
+ * =================================================================== */
+
+/* Variables específicas para cards */
+:root {
+  --card-radius: 0.75rem;
+  --card-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  --card-shadow-hover: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --card-border: hsl(var(--border));
+  --card-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ===== CARD BASE COMPONENT ===== */
+.enhanced-card {
+  background: hsl(var(--card));
+  color: hsl(var(--card-foreground));
+  border: 1px solid var(--card-border);
+  border-radius: var(--card-radius);
+  box-shadow: var(--card-shadow);
+  transition: var(--card-transition);
+  overflow: hidden;
+  position: relative;
+}
+
+.enhanced-card:hover {
+  box-shadow: var(--card-shadow-hover);
+  transform: translateY(-2px);
+  border-color: hsl(var(--ring));
+}
+
+/* ===== CARD HEADER ===== */
+.enhanced-card-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+  padding: 1.5rem 1.5rem 0;
+}
+
+.enhanced-card-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 1.25;
+  color: hsl(var(--foreground));
+  margin: 0;
+}
+
+.enhanced-card-description {
+  font-size: 0.875rem;
+  color: hsl(var(--muted-foreground));
+  line-height: 1.4;
+  margin: 0;
+}
+
+.enhanced-card-action {
+  margin-top: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* ===== CARD CONTENT ===== */
+.enhanced-card-content {
+  padding: 1.5rem;
+  padding-top: 1rem;
+}
+
+.enhanced-card-content:first-child {
+  padding-top: 1.5rem;
+}
+
+/* ===== CARD FOOTER ===== */
+.enhanced-card-footer {
+  display: flex;
+  align-items: center;
+  padding: 0 1.5rem 1.5rem;
+  gap: 0.5rem;
+}
+
+/* ===== SERVICE CARD VARIANTS ===== */
+.service-card {
+  @apply enhanced-card;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+}
+
+.service-card-online {
+  border-left: 4px solid hsl(142 76% 36%);
+}
+
+.service-card-offline {
+  border-left: 4px solid hsl(0 84% 60%);
+  opacity: 0.8;
+}
+
+.service-card-maintenance {
+  border-left: 4px solid hsl(48 96% 53%);
+}
+
+.service-card-unknown {
+  border-left: 4px solid hsl(var(--muted));
+}
+
+/* ===== WIDGET CARD ENHANCEMENTS ===== */
+.widget-card {
+  @apply enhanced-card;
+  background: linear-gradient(135deg, hsl(var(--card)) 0%, hsl(var(--muted)) 100%);
+}
+
+.widget-card .widget-content {
+  padding: 1rem;
+}
+
+.widget-card .widget-title {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: hsl(var(--muted-foreground));
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.widget-card .widget-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: hsl(var(--foreground));
+  line-height: 1;
+}
+
+/* ===== METRIC CARDS ===== */
+.metric-card {
+  @apply enhanced-card;
+  text-align: center;
+  padding: 1.5rem 1rem;
+}
+
+.metric-card .metric-icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  margin: 0 auto 1rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+}
+
+.metric-card .metric-label {
+  font-size: 0.75rem;
+  color: hsl(var(--muted-foreground));
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.25rem;
+}
+
+.metric-card .metric-value {
+  font-size: 1.875rem;
+  font-weight: 800;
+  color: hsl(var(--foreground));
+  line-height: 1;
+}
+
+.metric-card .metric-unit {
+  font-size: 0.875rem;
+  color: hsl(var(--muted-foreground));
+  margin-left: 0.25rem;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 768px) {
+  .enhanced-card {
+    border-radius: 0.5rem;
+  }
+  
+  .enhanced-card-header,
+  .enhanced-card-content,
+  .enhanced-card-footer {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  .enhanced-card-header {
+    padding-top: 1rem;
+  }
+  
+  .enhanced-card-content {
+    padding-top: 0.75rem;
+    padding-bottom: 1rem;
+  }
+  
+  .enhanced-card-footer {
+    padding-bottom: 1rem;
+  }
+}
+
+/* ===== ACCESSIBILITY ===== */
+@media (prefers-reduced-motion: reduce) {
+  .enhanced-card {
+    transition: none;
+  }
+  
+  .enhanced-card:hover {
+    transform: none;
+  }
+}
+
+.enhanced-card:focus-within {
+  outline: 2px solid hsl(var(--ring));
+  outline-offset: 2px;
+}
+
+/* ===== DARK MODE OPTIMIZATIONS ===== */
+@media (prefers-color-scheme: dark) {
+  .enhanced-card {
+    background: hsl(var(--card));
+    border-color: hsl(var(--border));
+  }
+  
+  .widget-card {
+    background: linear-gradient(135deg, hsl(var(--card)) 0%, hsl(var(--muted) / 0.5) 100%);
+  }
+}
+
+/* ===== ANIMATION KEYFRAMES ===== */
+@keyframes card-enter {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.enhanced-card.animate-enter {
+  animation: card-enter 0.3s ease-out;
+}
+
+/* ===== UTILITY CLASSES ===== */
+.card-compact {
+  padding: 0.75rem;
+}
+
+.card-spacious {
+  padding: 2rem;
+}
+
+.card-borderless {
+  border: none;
+  box-shadow: var(--card-shadow);
+}
+
+.card-elevated {
+  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+}

@@ -1,0 +1,49 @@
+---
+# === ACCESOS RÁPIDOS EMPRESARIALES ===
+- Favoritos:
+    # Comunicación y Productividad
+    - "📧 Gmail Enterprise":
+        - icon: gmail.png
+          href: https://mail.google.com
+          description: "Corporate Email Hub"
+          abbr: GM
+    
+    # Entretenimiento y Media
+    - "🎥 YouTube":
+        - icon: youtube.png
+          href: https://www.youtube.com/
+          description: "Video Platform"
+          abbr: YT
+    
+    - "🎮 Kick Streaming":
+        - icon: kick.png
+          href: https://kick.com
+          description: "Live Streaming Platform"
+          abbr: KS
+    
+    # Infraestructura y DevOps
+    - "☁️ Cloudflare DNS":
+        - icon: cloudflare.png
+          href: https://dash.cloudflare.com/
+          description: "DNS & CDN Management"
+          abbr: CF
+    
+    - "🔧 Proxmox Scripts":
+        - icon: sh-proxmox-helper-scripts.png
+          href: https://helper-scripts.com/scripts
+          description: "Automation Scripts Hub"
+          abbr: PX
+    
+    # Herramientas de Desarrollo
+    - "🐙 GitHub":
+        - icon: github.png
+          href: https://github.com/
+          description: "Code Repository"
+          abbr: GH
+    
+    # Documentación y Referencias
+    - "📚 Homepage Docs":
+        - icon: homepage.png
+          href: https://gethomepage.dev/
+          description: "Official Documentation"
+          abbr: HD

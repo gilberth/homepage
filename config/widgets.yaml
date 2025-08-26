@@ -1,0 +1,26 @@
+---
+- resources:
+    cpu: true
+    memory: true
+    cputemp: true
+    uptime: true
+    units: metric
+    refresh: 3000
+ 
+- datetime:
+    text_size: xl
+    format:
+      timeStyle: short
+      hourCycle: h23
+      dateStyle: short
+ 
+- openmeteo:
+    label: Lince, Lima
+    latitude: -12.0846
+    longitude: -77.0350
+    units: metric
+    cache: 5
+
+- unifi_console:
+    url: https://router.local.gytech.com.pe/
+    key: - # required if using API key instead of username/password

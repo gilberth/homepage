@@ -1,0 +1,406 @@
+/* ===================================================================
+ * PROGRESS BARS - shadcn/ui Compatible Components
+ * Barras de progreso animadas para métricas del sistema
+ * =================================================================== */
+
+/* Variables específicas para progress bars */
+:root {
+  --progress-radius: 0.5rem;
+  --progress-height: 0.5rem;
+  --progress-bg: hsl(var(--secondary));
+  --progress-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ===== BASE PROGRESS COMPONENT ===== */
+.progress-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border-radius: var(--progress-radius);
+  background-color: var(--progress-bg);
+  height: var(--progress-height);
+}
+
+.progress-bar {
+  height: 100%;
+  width: 0%;
+  border-radius: inherit;
+  transition: var(--progress-transition);
+  position: relative;
+  overflow: hidden;
+}
+
+/* ===== PROGRESS VARIANTS ===== */
+
+/* Default Progress */
+.progress-default {
+  background-color: hsl(var(--primary));
+}
+
+/* Success Progress */
+.progress-success {
+  background-color: hsl(142 76% 36%);
+}
+
+/* Warning Progress */
+.progress-warning {
+  background-color: hsl(48 96% 53%);
+}
+
+/* Destructive Progress */
+.progress-destructive {
+  background-color: hsl(0 84% 60%);
+}
+
+/* Info Progress */
+.progress-info {
+  background-color: hsl(221 83% 53%);
+}
+
+/* ===== SYSTEM METRIC PROGRESS BARS ===== */
+
+/* CPU Usage */
+.progress-cpu {
+  background: linear-gradient(90deg, 
+    hsl(142 76% 36%) 0%,
+    hsl(48 96% 53%) 70%,
+    hsl(0 84% 60%) 90%
+  );
+}
+
+/* Memory Usage */
+.progress-memory {
+  background: linear-gradient(90deg,
+    hsl(221 83% 53%) 0%,
+    hsl(48 96% 53%) 80%,
+    hsl(0 84% 60%) 95%
+  );
+}
+
+/* Disk Usage */
+.progress-disk {
+  background: linear-gradient(90deg,
+    hsl(142 76% 36%) 0%,
+    hsl(48 96% 53%) 85%,
+    hsl(0 84% 60%) 95%
+  );
+}
+
+/* Network Usage */
+.progress-network {
+  background: linear-gradient(90deg,
+    hsl(var(--primary)) 0%,
+    hsl(var(--accent)) 100%
+  );
+}
+
+/* Temperature */
+.progress-temperature {
+  background: linear-gradient(90deg,
+    hsl(221 83% 53%) 0%,
+    hsl(142 76% 36%) 30%,
+    hsl(48 96% 53%) 70%,
+    hsl(0 84% 60%) 90%
+  );
+}
+
+/* ===== SIZE VARIANTS ===== */
+
+.progress-sm {
+  --progress-height: 0.25rem;
+}
+
+.progress-md {
+  --progress-height: 0.5rem;
+}
+
+.progress-lg {
+  --progress-height: 0.75rem;
+}
+
+.progress-xl {
+  --progress-height: 1rem;
+}
+
+/* ===== ANIMATED PROGRESS BARS ===== */
+
+/* Striped Animation */
+.progress-striped {
+  background-image: linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.15) 25%,
+    transparent 25%,
+    transparent 50%,
+    rgba(255, 255, 255, 0.15) 50%,
+    rgba(255, 255, 255, 0.15) 75%,
+    transparent 75%,
+    transparent
+  );
+  background-size: 1rem 1rem;
+}
+
+.progress-striped.progress-animated {
+  animation: progress-stripes 1s linear infinite;
+}
+
+/* Pulse Animation */
+.progress-pulse {
+  animation: progress-pulse 2s ease-in-out infinite;
+}
+
+/* Glow Effect */
+.progress-glow {
+  box-shadow: 0 0 10px currentColor;
+  animation: progress-glow 2s ease-in-out infinite alternate;
+}
+
+/* ===== PROGRESS WITH LABELS ===== */
+
+.progress-with-label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.progress-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.progress-label-text {
+  color: hsl(var(--foreground));
+}
+
+.progress-label-value {
+  color: hsl(var(--muted-foreground));
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+}
+
+/* ===== CIRCULAR PROGRESS ===== */
+
+.progress-circular {
+  position: relative;
+  width: 4rem;
+  height: 4rem;
+}
+
+.progress-circular svg {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.progress-circular-bg {
+  fill: none;
+  stroke: var(--progress-bg);
+  stroke-width: 8;
+}
+
+.progress-circular-bar {
+  fill: none;
+  stroke: hsl(var(--primary));
+  stroke-width: 8;
+  stroke-linecap: round;
+  transition: stroke-dasharray 0.3s ease;
+}
+
+.progress-circular-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: hsl(var(--foreground));
+}
+
+/* ===== MULTI-SEGMENT PROGRESS ===== */
+
+.progress-multi {
+  display: flex;
+  width: 100%;
+  height: var(--progress-height);
+  border-radius: var(--progress-radius);
+  overflow: hidden;
+  background-color: var(--progress-bg);
+}
+
+.progress-segment {
+  height: 100%;
+  transition: var(--progress-transition);
+  position: relative;
+}
+
+.progress-segment:not(:last-child) {
+  border-right: 1px solid hsl(var(--background));
+}
+
+/* ===== THRESHOLD INDICATORS ===== */
+
+.progress-with-thresholds {
+  position: relative;
+}
+
+.progress-threshold {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background-color: hsl(var(--border));
+  z-index: 1;
+}
+
+.progress-threshold-warning {
+  background-color: hsl(48 96% 53%);
+}
+
+.progress-threshold-critical {
+  background-color: hsl(0 84% 60%);
+}
+
+.progress-threshold::after {
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: -2px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: inherit;
+}
+
+/* ===== ANIMATIONS ===== */
+
+@keyframes progress-stripes {
+  0% {
+    background-position: 1rem 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+@keyframes progress-pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+@keyframes progress-glow {
+  0% {
+    box-shadow: 0 0 5px currentColor;
+  }
+  100% {
+    box-shadow: 0 0 20px currentColor;
+  }
+}
+
+@keyframes progress-loading {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Indeterminate Progress */
+.progress-indeterminate {
+  position: relative;
+  overflow: hidden;
+}
+
+.progress-indeterminate::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    hsl(var(--primary)),
+    transparent
+  );
+  animation: progress-loading 1.5s ease-in-out infinite;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 768px) {
+  .progress-with-label {
+    gap: 0.25rem;
+  }
+  
+  .progress-label {
+    font-size: 0.75rem;
+  }
+  
+  .progress-circular {
+    width: 3rem;
+    height: 3rem;
+  }
+  
+  .progress-circular-text {
+    font-size: 0.75rem;
+  }
+}
+
+/* ===== ACCESSIBILITY ===== */
+@media (prefers-reduced-motion: reduce) {
+  .progress-striped.progress-animated,
+  .progress-pulse,
+  .progress-glow,
+  .progress-indeterminate::before {
+    animation: none;
+  }
+}
+
+.progress-container[role="progressbar"] {
+  outline: none;
+}
+
+.progress-container[role="progressbar"]:focus {
+  outline: 2px solid hsl(var(--ring));
+  outline-offset: 2px;
+}
+
+/* ===== UTILITY CLASSES ===== */
+.progress-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.progress-group {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.progress-inline {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.progress-inline .progress-container {
+  flex: 1;
+}
+
+/* ===== DARK MODE OPTIMIZATIONS ===== */
+@media (prefers-color-scheme: dark) {
+  .progress-container {
+    background-color: hsl(var(--secondary));
+  }
+  
+  .progress-threshold {
+    background-color: hsl(var(--border));
+  }
+}

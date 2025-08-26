@@ -1,0 +1,367 @@
+/* ===================================================================
+ * STATUS BADGES - shadcn/ui Compatible Components
+ * Badges de estado dinámicos para servicios y métricas
+ * =================================================================== */
+
+/* Variables específicas para badges */
+:root {
+  --badge-radius: 0.375rem;
+  --badge-transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  --badge-font-size: 0.75rem;
+  --badge-padding-x: 0.625rem;
+  --badge-padding-y: 0.25rem;
+}
+
+/* ===== BASE BADGE COMPONENT ===== */
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--badge-radius);
+  border: 1px solid transparent;
+  padding: var(--badge-padding-y) var(--badge-padding-x);
+  font-size: var(--badge-font-size);
+  font-weight: 500;
+  line-height: 1;
+  white-space: nowrap;
+  transition: var(--badge-transition);
+  cursor: default;
+  user-select: none;
+}
+
+/* ===== BADGE VARIANTS ===== */
+
+/* Default Badge */
+.badge-default {
+  background-color: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+  border-color: hsl(var(--primary));
+}
+
+.badge-default:hover {
+  background-color: hsl(var(--primary) / 0.8);
+}
+
+/* Secondary Badge */
+.badge-secondary {
+  background-color: hsl(var(--secondary));
+  color: hsl(var(--secondary-foreground));
+  border-color: hsl(var(--secondary));
+}
+
+.badge-secondary:hover {
+  background-color: hsl(var(--secondary) / 0.8);
+}
+
+/* Destructive Badge */
+.badge-destructive {
+  background-color: hsl(var(--destructive));
+  color: hsl(var(--destructive-foreground));
+  border-color: hsl(var(--destructive));
+}
+
+.badge-destructive:hover {
+  background-color: hsl(var(--destructive) / 0.8);
+}
+
+/* Outline Badge */
+.badge-outline {
+  background-color: transparent;
+  color: hsl(var(--foreground));
+  border-color: hsl(var(--border));
+}
+
+.badge-outline:hover {
+  background-color: hsl(var(--accent));
+  color: hsl(var(--accent-foreground));
+}
+
+/* ===== SERVICE STATUS BADGES ===== */
+
+/* Online Status */
+.status-online {
+  background-color: hsl(142 76% 36%);
+  color: hsl(0 0% 100%);
+  border-color: hsl(142 76% 36%);
+}
+
+.status-online::before {
+  content: '';
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background-color: currentColor;
+  margin-right: 0.375rem;
+  animation: pulse-online 2s infinite;
+}
+
+/* Offline Status */
+.status-offline {
+  background-color: hsl(0 84% 60%);
+  color: hsl(0 0% 100%);
+  border-color: hsl(0 84% 60%);
+}
+
+.status-offline::before {
+  content: '';
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background-color: currentColor;
+  margin-right: 0.375rem;
+}
+
+/* Maintenance Status */
+.status-maintenance {
+  background-color: hsl(48 96% 53%);
+  color: hsl(0 0% 0%);
+  border-color: hsl(48 96% 53%);
+}
+
+.status-maintenance::before {
+  content: '';
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background-color: currentColor;
+  margin-right: 0.375rem;
+  animation: pulse-warning 1.5s infinite;
+}
+
+/* Unknown Status */
+.status-unknown {
+  background-color: hsl(var(--muted));
+  color: hsl(var(--muted-foreground));
+  border-color: hsl(var(--muted));
+}
+
+.status-unknown::before {
+  content: '';
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background-color: currentColor;
+  margin-right: 0.375rem;
+  opacity: 0.6;
+}
+
+/* Loading Status */
+.status-loading {
+  background-color: hsl(var(--accent));
+  color: hsl(var(--accent-foreground));
+  border-color: hsl(var(--accent));
+}
+
+.status-loading::before {
+  content: '';
+  width: 0.5rem;
+  height: 0.5rem;
+  border: 1px solid currentColor;
+  border-top-color: transparent;
+  border-radius: 50%;
+  margin-right: 0.375rem;
+  animation: spin 1s linear infinite;
+}
+
+/* ===== METRIC BADGES ===== */
+
+/* Success Metric */
+.metric-success {
+  background-color: hsl(142 76% 36% / 0.1);
+  color: hsl(142 76% 36%);
+  border-color: hsl(142 76% 36% / 0.2);
+}
+
+/* Warning Metric */
+.metric-warning {
+  background-color: hsl(48 96% 53% / 0.1);
+  color: hsl(48 96% 53%);
+  border-color: hsl(48 96% 53% / 0.2);
+}
+
+/* Critical Metric */
+.metric-critical {
+  background-color: hsl(0 84% 60% / 0.1);
+  color: hsl(0 84% 60%);
+  border-color: hsl(0 84% 60% / 0.2);
+}
+
+/* Info Metric */
+.metric-info {
+  background-color: hsl(221 83% 53% / 0.1);
+  color: hsl(221 83% 53%);
+  border-color: hsl(221 83% 53% / 0.2);
+}
+
+/* ===== SIZE VARIANTS ===== */
+
+.badge-sm {
+  font-size: 0.6875rem;
+  padding: 0.125rem 0.375rem;
+}
+
+.badge-lg {
+  font-size: 0.875rem;
+  padding: 0.375rem 0.75rem;
+}
+
+.badge-xl {
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+}
+
+/* ===== SPECIAL BADGES ===== */
+
+/* Notification Badge */
+.badge-notification {
+  background-color: hsl(0 84% 60%);
+  color: hsl(0 0% 100%);
+  border-radius: 50%;
+  min-width: 1.25rem;
+  height: 1.25rem;
+  padding: 0;
+  font-size: 0.625rem;
+  font-weight: 600;
+}
+
+/* Version Badge */
+.badge-version {
+  background-color: hsl(var(--muted));
+  color: hsl(var(--muted-foreground));
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  font-size: 0.6875rem;
+}
+
+/* Priority Badges */
+.badge-priority-high {
+  background: linear-gradient(135deg, hsl(0 84% 60%) 0%, hsl(0 84% 50%) 100%);
+  color: hsl(0 0% 100%);
+  font-weight: 600;
+}
+
+.badge-priority-medium {
+  background: linear-gradient(135deg, hsl(48 96% 53%) 0%, hsl(48 96% 43%) 100%);
+  color: hsl(0 0% 0%);
+  font-weight: 600;
+}
+
+.badge-priority-low {
+  background: linear-gradient(135deg, hsl(142 76% 36%) 0%, hsl(142 76% 26%) 100%);
+  color: hsl(0 0% 100%);
+  font-weight: 600;
+}
+
+/* ===== ANIMATIONS ===== */
+
+@keyframes pulse-online {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes pulse-warning {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.1);
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes badge-enter {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.badge-animate-enter {
+  animation: badge-enter 0.2s ease-out;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 768px) {
+  .status-badge {
+    font-size: 0.6875rem;
+    padding: 0.125rem 0.375rem;
+  }
+  
+  .badge-lg {
+    font-size: 0.75rem;
+    padding: 0.25rem 0.5rem;
+  }
+  
+  .badge-xl {
+    font-size: 0.875rem;
+    padding: 0.375rem 0.75rem;
+  }
+}
+
+/* ===== ACCESSIBILITY ===== */
+@media (prefers-reduced-motion: reduce) {
+  .status-online::before,
+  .status-maintenance::before,
+  .status-loading::before {
+    animation: none;
+  }
+}
+
+.status-badge:focus {
+  outline: 2px solid hsl(var(--ring));
+  outline-offset: 2px;
+}
+
+/* ===== UTILITY CLASSES ===== */
+.badge-group {
+  display: flex;
+  gap: 0.25rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.badge-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+  align-items: flex-start;
+}
+
+.badge-with-icon {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.badge-with-icon svg {
+  width: 0.75rem;
+  height: 0.75rem;
+}
+
+/* ===== DARK MODE OPTIMIZATIONS ===== */
+@media (prefers-color-scheme: dark) {
+  .badge-outline {
+    border-color: hsl(var(--border));
+  }
+  
+  .badge-outline:hover {
+    background-color: hsl(var(--accent));
+  }
+}

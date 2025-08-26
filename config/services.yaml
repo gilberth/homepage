@@ -1,0 +1,280 @@
+---
+# 🏗️ INFRAESTRUCTURA EMPRESARIAL
+- Core Infrastructure:
+    - Proxmox PVE-01:
+        icon: proxmox.png
+        href: https://proxmox.local.gytech.com.pe/
+        description: "🚀 Hypervisor Principal"
+        siteMonitor: https://proxmox.local.gytech.com.pe/
+        widget:
+          type: proxmox
+          url: https://proxmox.local.gytech.com.pe/
+          key: enteryourkeyhere
+    - Proxmox PVE-02:
+        icon: proxmox.png
+        href: https://proxmox2.local.gytech.com.pe/
+        description: "⚡ Hypervisor Secundario"
+        siteMonitor: https://proxmox2.local.gytech.com.pe/
+        widget:
+          type: proxmox
+          url: https://proxmox2.local.gytech.com.pe/
+          key: enteryourkeyhere
+    - TrueNAS Scale:
+        icon: truenas-scale.png
+        href: https://truenas.local.gytech.com.pe/
+        description: "💾 Almacenamiento ZFS"
+        siteMonitor: http://10.10.10.176/
+        widget:
+          type: truenas
+          url: http://10.10.10.176/
+          key: 
+    - PBS Backup:
+        icon: https://i.ytimg.com/vi/eaQ9CXDFOvs/hqdefault.jpg
+        href: https://10.10.10.211:8007
+        description: "🛡️ Servidor de Respaldos"
+        siteMonitor: https://10.10.10.211:8007
+
+# 🌐 NETWORKING Y SEGURIDAD
+- Network & Security:
+    - Traefik:
+        icon: traefik-proxy.png
+        href: https://traefik-dashboard.local.gytech.com.pe/
+        description: "🚦 Proxy Reverso"
+        siteMonitor: https://traefik-dashboard.local.gytech.com.pe/
+        widget:
+          type: traefik
+          url: https://traefik-dashboard.local.gytech.com.pe/
+          key: enteryourkeyhere
+          fields: ["http_requests_total", "http_response_time_seconds"]
+    - Ubiquiti:
+        icon: ubiquiti.png
+        href: https://router.local.gytech.com.pe/
+        description: "🌐 Router Enterprise"
+        siteMonitor: https://router.local.gytech.com.pe/
+        widget:
+          type: unifi
+          url: https://router.local.gytech.com.pe/
+          key: 
+     - Adguard:
+        icon: adguard-home.png
+        href: https://adguard.local.gytech.com.pe/
+        description: "🛡️ Filtro DNS Principal"
+        siteMonitor: https://adguard.local.gytech.com.pe/login.html
+        widget:
+          type: adguard
+          url: https://adguard.local.gytech.com.pe/
+          username: 
+          password: 
+    - Adguard2:
+        icon: adguard-home.png
+        href: https://adguard2.local.gytech.com.pe/
+        description: "🔒 Filtro DNS Secundario"
+        siteMonitor: https://adguard2.local.gytech.com.pe/login.html
+        widget:
+          type: adguard
+          url: https://adguard2.local.gytech.com.pe/
+          username: 
+          password: 
+
+# 🎬 MEDIA STREAMING TECH CENTER
+- Media Streaming:
+    - "🎯 MEDIA COMMAND CENTER":
+        widget:
+          type: calendar
+          firstDayInWeek: monday
+          view: monthly
+          maxEvents: 15
+          showTime: true
+          timezone: America/Lima
+          integrations:
+            - type: sonarr
+              service_group: Media Automation
+              service_name: Sonarr
+              color: red
+              params:
+                unmonitored: false
+                showName: true
+            - type: sonarr
+              service_group: Media Automation
+              service_name: Sonarr-Series
+              color: blue
+              params:
+                unmonitored: false
+                showName: true
+    - "⚡ RELEASE TRACKER":
+        widget:
+          type: calendar
+          view: agenda
+          maxEvents: 10
+          showTime: true
+          previousDays: 0
+          timezone: America/Lima
+          integrations:
+            - type: sonarr
+              service_group: Media Automation
+              service_name: Sonarr
+              color: green
+              params:
+                unmonitored: false
+                showName: true
+            - type: sonarr
+              service_group: Media Automation
+              service_name: Sonarr-Series
+              color: purple
+              params:
+                unmonitored: false
+                showName: true
+    - "🎭 JELLYFIN THEATER":
+        icon: jellyfin.png
+        href: http://truenas.local.gytech.com.pe:30013
+        description: "Digital Entertainment Hub"
+        siteMonitor: http://truenas.local.gytech.com.pe:30013
+        widget:
+          type: jellyfin
+          url: http://truenas.local.gytech.com.pe:30013
+          key: enteryourkeyhere
+          enableBlocks: true
+          enableNowPlaying: true
+          enableUser: false
+          showEpisodeNumber: true
+          expandOneStreamToTwoRows: false
+          fields: ["movies", "series", "episodes", "songs"]
+    - "📸 IMMICH VAULT":
+        icon: immich.png
+        href: http://10.10.10.232:2283/
+        description: "Photo & Video Archive"
+        siteMonitor: http://10.10.10.232:2283/
+        widget:
+          type: immich
+          url: http://10.10.10.232:2283
+          key: 
+          version: 2
+          fields: ["photos", "videos", "storage"]
+
+# 🤖 AUTOMATIZACIÓN DE MEDIOS
+- Media Automation:
+    - Sonarr:
+        icon: sonarr.png
+        href: http://10.10.10.176:30113
+        description: "📺 Gestor de Series"
+        siteMonitor: http://10.10.10.176:30113
+        widget:
+          type: sonarr
+          url: http://10.10.10.176:30113
+          key: e6651fb52d284b6fb2a8694029dfc4b9
+          fields: ["wanted", "queued", "series"]
+    - Sonarr-Series:
+        icon: sonarr.png
+        href: http://10.10.10.176:30114
+        description: "🎬 Series Premium"
+        siteMonitor: http://10.10.10.176:30114
+        widget:
+          type: sonarr
+          url: http://10.10.10.176:30114
+          key: 
+          fields: ["wanted", "queued", "series"]
+    - Medusa:
+        icon: https://cdn.jsdelivr.net/gh/selfhst/icons/png/py-medusa.png
+        href: https://medusa.local.gytech.com.pe/
+        description: "📺 Gestor de Series Alt"
+        siteMonitor: https://medusa.local.gytech.com.pe/
+        widget:
+          type: medusa
+          url: https://medusa.local.gytech.com.pe/
+    - Bazarr:
+        icon: bazarr.png
+        href: http://10.10.10.176:30046/
+        description: "🔤 Gestor de Subtítulos"
+        siteMonitor: http://10.10.10.176:30046/
+        widget:
+          type: bazarr
+          url: http://10.10.10.176:30046/
+    - Lingarr:
+        icon: lidarr.png
+        href: http://10.10.10.232:9876
+        description: "🌐 Traductor de Subtítulos"
+        siteMonitor: http://10.10.10.232:9876
+        widget:
+          type: lidarr
+          url: http://10.10.10.232:9876
+
+# 📥 GESTIÓN DE DESCARGAS
+- Download Management:
+    - Prowlarr:
+        icon: prowlarr.png
+        href: http://10.10.10.123:9696/
+        description: "🔍 Hub de Indexadores"
+        siteMonitor: http://10.10.10.123:9696/
+        widget:
+          type: prowlarr
+          url: http://10.10.10.123:9696/
+          key: 
+          fields: ["numberOfGrabs", "numberOfQueries"]
+    - Jackett:
+        icon: jackett.png
+        href: https://jackett.local.gytech.com.pe
+        description: "🌐 Portal de Indexadores"
+        siteMonitor: https://jackett.local.gytech.com.pe/UI/Dashboard
+        widget:
+          type: jackett
+          url: https://jackett.local.gytech.com.pe
+          password: 
+    - Transmission:
+        icon: transmission.png
+        href: http://10.10.10.176:30096
+        description: "🌊 Cliente BitTorrent"
+        siteMonitor: http://10.10.10.176:30096
+        widget:
+          type: transmission
+          url: http://10.10.10.176:30096
+          username: 
+          password: 
+
+# 🧠 INTELIGENCIA ARTIFICIAL
+- AI & Automation:
+    - Open WebUI:
+        icon: openai-light.png
+        href: https://chat.local.gytech.com.pe
+        description: "🤖 Asistente AI"
+        siteMonitor: https://chat.local.gytech.com.pe
+        widget:
+          type: openwebui
+          url: https://chat.local.gytech.com.pe
+    - n8n:
+        icon: n8n.png
+        href: https://n8n.gytech.com.pe/
+        description: "⚙️ Automatización de Flujos"
+        siteMonitor: https://n8n.gytech.com.pe/
+        widget:
+          type: n8n
+          url: https://n8n.gytech.com.pe/
+
+# 🏠 DOMÓTICA Y IOT
+- Smart Home:
+    - Home Assistant:
+        icon: home-assistant.png
+        href: http://10.10.10.109:8123
+        description: "🏠 Hub IoT Inteligente"
+        siteMonitor: http://10.10.10.109:8123
+        widget:
+          type: homeassistant
+          url: http://10.10.10.109:8123
+
+# 🛠️ HERRAMIENTAS Y UTILIDADES
+- Tools & Utilities:
+    - Karakeep:
+        icon: karakeep.png
+        href: https://karakeep.local.gytech.com.pe/
+        description: "📝 Bloc de Notas"
+        siteMonitor: https://karakeep.local.gytech.com.pe/
+        widget:
+          type: karakeep
+          url: https://karakeep.local.gytech.com.pe/
+    - Dozzle:
+        icon: dozzle.png
+        href: https://logs.local.gytech.com.pe/
+        description: "📊 Monitor de Logs"
+        siteMonitor: https://logs.local.gytech.com.pe/
+        widget:
+          type: dozzle
+          url: https://logs.local.gytech.com.pe/

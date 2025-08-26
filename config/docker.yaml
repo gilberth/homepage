@@ -1,0 +1,38 @@
+---
+# Configuración Docker para Homepage
+# Documentación: https://gethomepage.dev/configs/docker/
+
+# Conexión local via socket (recomendado para seguridad)
+local-docker:
+  socket: /var/run/docker.sock
+
+# Configuración para monitoreo de contenedores
+# Descomenta y configura según tus necesidades:
+
+# docker-remote:
+#   host: 10.10.10.176
+#   port: 2376
+#   # Para conexiones seguras TLS:
+#   # tls: true
+#   # tlsVerify: true
+#   # tlsCert: /path/to/cert.pem
+#   # tlsKey: /path/to/key.pem
+#   # tlsCa: /path/to/ca.pem
+
+# truenas-docker:
+#   host: 10.10.10.176
+#   port: 2375
+#   # Solo para redes internas seguras sin TLS
+
+# Servidor Docker remoto - 10.10.10.232
+docker-remote:
+  host: 10.10.10.232
+  port: 2375
+  # Configuración para red interna sin TLS
+  # Si necesitas TLS, descomenta las siguientes líneas:
+  # port: 2376
+  # tls: true
+  # tlsVerify: true
+  # tlsCert: /path/to/cert.pem
+  # tlsKey: /path/to/key.pem
+  # tlsCa: /path/to/ca.pem

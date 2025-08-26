@@ -1,0 +1,116 @@
+{
+  "techEffects": {
+    "enabled": true,
+    "performance": "auto",
+    "effects": {
+      "matrixRain": {
+        "enabled": true,
+        "density": 0.8,
+        "speed": 1.2,
+        "characters": "01アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン"
+      },
+      "scanLines": {
+        "enabled": true,
+        "interval": 3000,
+        "duration": 1500,
+        "color": "#00ff88"
+      },
+      "dataFlow": {
+        "enabled": true,
+        "speed": 2000,
+        "particles": 20
+      },
+      "networkLines": {
+        "enabled": true,
+        "connectionProbability": 0.3,
+        "animationDuration": 3000
+      },
+      "holographicSweep": {
+        "enabled": true,
+        "interval": 4000,
+        "duration": 2000
+      }
+    },
+    "serviceSpecific": {
+      "Core Infrastructure": {
+        "effect": "critical-scan",
+        "color": "#ef4444",
+        "priority": "high"
+      },
+      "Network & Security": {
+        "effect": "shield-pulse",
+        "color": "#3b82f6",
+        "priority": "high"
+      },
+      "AI & Automation": {
+        "effect": "matrix-glow",
+        "color": "#00ff88",
+        "priority": "medium"
+      },
+      "Media Streaming": {
+        "effect": "entertainment-flow",
+        "color": "#ec4899",
+        "priority": "low"
+      }
+    },
+    "responsive": {
+      "mobile": {
+        "disableEffects": ["matrixRain", "networkLines", "holographicSweep"],
+        "reducedAnimations": true
+      },
+      "tablet": {
+        "disableEffects": ["matrixRain"],
+        "reducedAnimations": false
+      },
+      "desktop": {
+        "disableEffects": [],
+        "reducedAnimations": false
+      }
+    },
+    "performance": {
+      "low": {
+        "maxParticles": 5,
+        "animationInterval": 100,
+        "disableComplexEffects": true
+      },
+      "medium": {
+        "maxParticles": 15,
+        "animationInterval": 50,
+        "disableComplexEffects": false
+      },
+      "high": {
+        "maxParticles": 30,
+        "animationInterval": 16,
+        "disableComplexEffects": false
+      }
+    }
+  },
+  "colors": {
+    "primary": "#14b8a6",
+    "secondary": "#06b6d4",
+    "accent": "#facc15",
+    "tech": "#00ff88",
+    "critical": "#ef4444",
+    "warning": "#f59e0b",
+    "success": "#10b981",
+    "info": "#3b82f6"
+  },
+  "animations": {
+    "duration": {
+      "fast": "0.2s",
+      "normal": "0.3s",
+      "slow": "0.5s"
+    },
+    "easing": {
+      "smooth": "cubic-bezier(0.4, 0, 0.2, 1)",
+      "bounce": "cubic-bezier(0.68, -0.55, 0.265, 1.55)",
+      "sharp": "cubic-bezier(0.4, 0, 0.6, 1)"
+    }
+  },
+  "debug": {
+    "enabled": false,
+    "showFPS": false,
+    "logPerformance": false,
+    "showBoundingBoxes": false
+  }
+}

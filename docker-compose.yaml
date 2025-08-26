@@ -1,0 +1,14 @@
+services:
+  homepage:
+    image: ghcr.io/gethomepage/homepage:latest
+    container_name: homepage
+    restart: unless-stopped
+    ports:
+      - 3000:3000
+    volumes:
+      - ./config:/app/config # Make sure your local config directory exists
+      - ./config/images:/app/public/images # Mount images directory
+      - /var/run/docker.sock:/var/run/docker.sock # (optional) For docker integrations
+    environment:
+      - HOMEPAGE_ALLOWED_HOSTS=localhost:3000,127.0.0.1:3000,10.10.10.172:3000,10.10.10.232:3000,homepage.local.gytech.com.pe # required, may need port. See gethomepage.dev/installation/#homepage_allowed_hosts
+      - NODE_TLS_REJECT_UNAUTHORIZED=0

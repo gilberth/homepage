@@ -1,0 +1,95 @@
+---
+title: Enterprise Infrastructure Portal
+headerStyle: boxed
+background:
+  image: /images/fondo.jpg
+  blur: none
+  saturate: 110
+  brightness: 50
+  opacity: 70
+theme: dark
+color: teal
+iconStyle: theme
+useEqualHeights: true
+cardBlur: md
+quicklaunch:
+  searchDescriptions: true
+  hideInternetSearch: true
+  showSearchSuggestions: true
+  hideVisitURL: true
+hideVersion: true
+hideErrors: true
+statusStyle: "dot"
+target: _self
+# Incluir estilos y scripts personalizados
+customCSS: |
+  <link rel="stylesheet" href="/config/components/enhanced-cards.css">
+  <link rel="stylesheet" href="/config/components/status-badges.css">
+  <link rel="stylesheet" href="/config/components/progress-bars.css">
+customJS: |
+  <script src="/config/tech-init.js"></script>
+layout:
+  # === ACCESOS RÁPIDOS PRINCIPALES ===
+  Favoritos:
+    header: true
+    style: row
+    columns: 6
+    useEqualHeights: false
+    
+  # === INFRAESTRUCTURA CRÍTICA (PRIORIDAD MÁXIMA) ===
+  Core Infrastructure:
+    header: true
+    style: row
+    columns: 4
+    useEqualHeights: true
+    
+  # === SEGURIDAD Y RED (PRIORIDAD ALTA) ===
+  Network & Security:
+    header: true
+    style: row
+    columns: 3
+    useEqualHeights: true
+    
+  # === CENTRO DE MEDIOS (DISEÑO ESPECIAL) ===
+  Media Streaming:
+    header: true
+    style: grid
+    columns: 2
+    useEqualHeights: true
+    
+  # === AUTOMATIZACIÓN DE MEDIOS ===
+  Media Automation:
+    header: true
+    style: row
+    columns: 5
+    useEqualHeights: true
+    
+  # === GESTIÓN DE DESCARGAS ===
+  Download Management:
+    header: true
+    style: row
+    columns: 3
+    useEqualHeights: true
+    
+  # === INTELIGENCIA ARTIFICIAL ===
+  AI & Automation:
+    header: true
+    style: row
+    columns: 2
+    useEqualHeights: true
+    
+  # === HOGAR INTELIGENTE ===
+  Smart Home:
+    header: true
+    style: row
+    columns: 1
+    useEqualHeights: true
+    
+  # === HERRAMIENTAS Y UTILIDADES ===
+  Tools & Utilities:
+    header: true
+    style: row
+    columns: 3
+    useEqualHeights: true
+
+
